@@ -19,9 +19,9 @@ st.markdown("An interactive dashboard analyzing historical video game sales data
 
 # Sidebar filters
 st.sidebar.header("Filters")
-platform_options = ["All"] + sorted(df["Plataforma"].unique().tolist())
+platform_options = ["All"] + sorted(df["Plataforma"].dropna().astype(str).unique().tolist())
 selected_platform = st.sidebar.selectbox("Platform", platform_options)
-genre_options = ["All"] + sorted(df["Genero"].unique().tolist())
+genre_options = ["All"] + sorted(df["Genero"].dropna().astype(str).unique().tolist())
 selected_genre = st.sidebar.selectbox("Genre", genre_options)
 
 # Filter dataframe based on selections
